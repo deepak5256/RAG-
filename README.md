@@ -25,8 +25,9 @@ pip install -r requirements.txt
 ### 3. Configure Environment Variables
 
 Create a `.env` file in the project root:
-
-```env
+```
+```bash
+.env
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
@@ -148,5 +149,6 @@ The application will now:
 
 
 Just create the `.env` file with your API key and run `python app.py` to start the demo!
+
 
 
