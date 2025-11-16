@@ -1,5 +1,5 @@
 
-```markdown
+
 # RAG Demo - TechCorp Company Knowledge Base
 
 A Flask web application that demonstrates Retrieval-Augmented Generation (RAG) using Google's Gemini AI to provide accurate company-specific information.
@@ -20,7 +20,7 @@ A Flask web application that demonstrates Retrieval-Augmented Generation (RAG) u
 
 ```bash
 pip install -r requirements.txt
-```
+
 
 ### 3. Configure Environment Variables
 
@@ -145,5 +145,6 @@ The application will now:
 - Automatically use the best available Gemini model
 - Provide clear error messages if something goes wrong
 - Work with fallback responses even if the API is unavailable
+
 
 Just create the `.env` file with your API key and run `python app.py` to start the demo!
