@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Results - TechCorp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏢 RAG Demo Results</h1>
+            <a href="/" class="back-link">← Ask another question</a>
+        </header>
+
+        <div class="query-section">
+            <h2>Your Question</h2>
+            <div class="query-box">
+                "{{ query }}"
+            </div>
+        </div>
+
+        {% if rag_advantage %}
+        <div class="advantage-banner">
+            🎯 <strong>RAG Advantage:</strong> This question benefits greatly from RAG because it requires specific, up-to-date company information that wouldn't be in the AI's general knowledge.
+        </div>
+        {% endif %}
+
+        <div class="results-container">
+            <div class="result-section">
+                <h2>📚 Retrieved Company Documents</h2>
+                {% if retrieved_info %}
+                <div class="retrieved-info">
+                    {% for info in retrieved_info %}
+                    <div class="source-card">
+                        <h4>{{ info.title }}</h4>
+                        <p class="source-meta">{{ info.source }}</p>
+                        <div class="content">{{ info.content }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="no-results">
+                    <p>No specific company documents found for this query.</p>
+                    <p>The RAG response will rely on general knowledge (similar to direct response).</p>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="comparison">
+                <div class="response-box rag-response">
+                    <div class="response-header">
+                        <h3>🤖 RAG Response</h3>
+                        <span class="badge">Company Knowledge</span>
+                    </div>
+                    <div class="response-content">
+                        {{ rag_response | replace('\n', '<br>') | safe }}
+                    </div>
+                    <div class="response-footer">
+                        ✅ Based on actual company documents and policies
+                    </div>
+                </div>
+
+                <div class="response-box direct-response">
+                    <div class="response-header">
+                        <h3>⚡ Direct AI Response</h3>
+                        <span class="badge">General Knowledge</span>
+                    </div>
+                    <div class="response-content">
+                        {{ direct_response | replace('\n', '<br>') | safe }}
+                    </div>
+                    <div class="response-footer">
+                        ⚠️ Based on AI's general training data only
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="analysis">
+            <h2>Key Differences Analysis</h2>
+            <div class="differences">
+                <div class="difference-item">
+                    <h4>📊 Specificity</h4>
+                    <p><strong>RAG:</strong> Provides exact numbers, dates, and policy details from company documents</p>
+                    <p><strong>Direct AI:</strong> Gives general guidelines that may not match actual company policies</p>
+                </div>
+                <div class="difference-item">
+                    <h4>🕒 Timeliness</h4>
+                    <p><strong>RAG:</strong> Uses the most recent company updates (2024 policies)</p>
+                    <p><strong>Direct AI:</strong> Based on training data that can be months or years old</p>
+                </div>
+                <div class="difference-item">
+                    <h4>🎯 Accuracy</h4>
+                    <p><strong>RAG:</strong> Grounded in actual company documents, less likely to hallucinate</p>
+                    <p><strong>Direct AI:</strong> May invent details that sound plausible but are incorrect</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="/" class="cta-button">Ask Another Question</a>
+    </div>
+</body>
+</html>
