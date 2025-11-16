@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Demo - Company Knowledge Base</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏢 TechCorp RAG Demo</h1>
+            <p class="subtitle">See how RAG provides accurate, company-specific information</p>
+        </header>
+
+        <div class="explanation">
+            <h2>Why RAG Matters for Company Knowledge</h2>
+            <div class="comparison-table">
+                <div class="column">
+                    <h3>❌ Without RAG</h3>
+                    <ul>
+                        <li>Generic, outdated information</li>
+                        <li>No access to internal policies</li>
+                        <li>May hallucinate company details</li>
+                        <li>No specific pricing or features</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>✅ With RAG</h3>
+                    <ul>
+                        <li>Accurate, up-to-date information</li>
+                        <li>Specific company policies</li>
+                        <li>Current pricing and features</li>
+                        <li>Internal contacts and procedures</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Ask About TechCorp Company Information</h2>
+            <form action="/ask" method="POST">
+                <div class="form-group">
+                    <label for="query">Your Question:</label>
+                    <input type="text" id="query" name="query" 
+                           placeholder="e.g., What's our vacation policy? How much does the Pro plan cost?"
+                           required>
+                </div>
+                <button type="submit">Ask with RAG</button>
+            </form>
+
+            <div class="sample-questions">
+                <p><strong>Try these example questions to see RAG's advantage:</strong></p>
+                <div class="question-categories">
+                    <div class="category">
+                        <h4>👥 HR Policies</h4>
+                        <ul>
+                            <li>"What's our vacation policy for 2024?"</li>
+                            <li>"How many remote work days do we have?"</li>
+                            <li>"What's the deductible for health insurance?"</li>
+                        </ul>
+                    </div>
+                    <div class="category">
+                        <h4>💰 Product & Pricing</h4>
+                        <ul>
+                            <li>"How much does the Pro plan cost?"</li>
+                            <li>"What new features launched recently?"</li>
+                            <li>"Is there any current promotion?"</li>
+                        </ul>
+                    </div>
+                    <div class="category">
+                        <h4>🏢 Company Info</h4>
+                        <ul>
+                            <li>"What are the expense limits for meals?"</li>
+                            <li>"When are performance reviews?"</li>
+                            <li>"What company events are coming up?"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="workflow">
+            <h2>How RAG Works with Company Knowledge</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Employee Asks</h3>
+                    <p>"What's our vacation policy?"</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>RAG Retrieves</h3>
+                    <p>Finds HR policy documents</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>AI Augments</h3>
+                    <p>Combines query with specific policy details</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Accurate Answer</h3>
+                    <p>"20 vacation days, 5 rollover days, unlimited mental health days"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
