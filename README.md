@@ -105,11 +105,11 @@ If you encounter issues:
 ## License
 
 This project is for demonstration purposes.
-```
+
 
 ## 5. Updated Project Structure:
 
-```
+
 rag-demo/
 ├── app.py
 ├── requirements.txt
@@ -120,7 +120,7 @@ rag-demo/
 │   └── result.html
 └── static/
     └── style.css
-```
+
 
 ## 6. Setup Commands:
 
@@ -148,3 +148,4 @@ The application will now:
 
 
 Just create the `.env` file with your API key and run `python app.py` to start the demo!
+
