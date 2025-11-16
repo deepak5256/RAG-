@@ -108,7 +108,7 @@ This project is for demonstration purposes.
 
 
 ## 5. Updated Project Structure:
-
+```bash
 
 rag-demo/
 ├── app.py
@@ -121,7 +121,7 @@ rag-demo/
 └── static/
     └── style.css
 
-
+```
 ## 6. Setup Commands:
 
 ```bash
@@ -148,4 +148,5 @@ The application will now:
 
 
 Just create the `.env` file with your API key and run `python app.py` to start the demo!
+
 
